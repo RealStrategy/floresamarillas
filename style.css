@@ -1,143 +1,102 @@
+/* Configuración básica del cuerpo */
 body {
-  background-color: #000;
-  margin: 0;
-  padding: 0;
-  height: 100vh; /* Asegura que el cuerpo ocupe toda la altura de la ventana */
-  display: flex;
-  align-items: center; /* Centra verticalmente los elementos en el cuerpo */
-  justify-content: center; /* Centra horizontalmente los elementos en el cuerpo */
+    background-color: #000; /* Fondo negro */
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* Ocupa toda la ventana */
+    display: flex;
+    flex-direction: column; /* Organiza los elementos en columna */
+    align-items: center; /* Centra los elementos horizontalmente */
+    justify-content: center; /* Centra los elementos verticalmente */
 }
+
+/* Contenedor de la flor */
+.flower-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px; /* Ajusta la altura para dar espacio */
+}
+
+/* Estilos de la flor */
 .flower {
-  height: 200px;
-  width: 200px;
-  margin: 20px auto;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  position: relative;
-  background-color: #000; /* Fondo negro para toda la página */
-
-  /* Agrega una animación de pulsación */
-  animation: pulsate 2s infinite;
+    height: 200px;
+    width: 200px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000;
+    animation: pulsate 2s infinite; /* Animación de pulsación */
 }
-.text-above,
+
+/* Estilos del texto debajo de la flor */
 .text-below {
-    position: absolute;
-    text-align: center;
-    color: #fff; /* Color del texto */
-    font-size: 25px; /* Tamaño del texto */
+    margin-top: 40px; /* Espacio extra debajo de la flor */
+    color: #fff;
+    font-size: 25px;
+    text-align: center; /* Centra el texto horizontalmente */
 }
 
-.text-above {
-    top: -60px; /* Ajusta la posición vertical del texto arriba de la flor */
-}
-
-.text-below {
-    bottom: -60px; /* Ajusta la posición vertical del texto debajo de la flor */
-}
-@keyframes pulsate {
-  0% {
-      transform: scale(1.5);
-  }
-  50% {
-      transform: scale(1.6);
-  }
-  100% {
-      transform: scale(1.5);
-  }
-}
-  .mid {
+/* Pétalos y centro */
+.mid {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    
     background: radial-gradient(circle, #000, #ff5e00, #000);
-  
     z-index: 4;
-  
-    background-size: 5px 5px;
-  
     filter: drop-shadow(0 0 8px #682600);
-  }
-  .Petal1 {
+}
+
+.Petal1, .Petal2, .Petal3 {
     position: absolute;
+    border-radius: 50%;
+    filter: drop-shadow(0 0 5px #e05200);
+}
+
+.Petal1 {
     left: 40px;
     z-index: 3;
-  
     width: 120px;
     height: 30px;
-    border-radius: 50%;
-  
     background: radial-gradient(circle, #ff5e00, #ffbb00);
-  
-    filter: drop-shadow(0 0 5px #e05200);
-  }
-  
-  .Petal1.p1 {
-    transform: rotate(22.5deg);
-  }
-  .Petal1.p2 {
-    transform: rotate(67.5deg);
-  }
-  .Petal1.p3 {
-    transform: rotate(110.5deg);
-  }
-  .Petal1.p4 {
-    transform: rotate(157.5deg);
-  }
-  
-  .Petal2 {
-    position: absolute;
+}
+
+.Petal1.p1 { transform: rotate(22.5deg); }
+.Petal1.p2 { transform: rotate(67.5deg); }
+.Petal1.p3 { transform: rotate(110.5deg); }
+.Petal1.p4 { transform: rotate(157.5deg); }
+
+.Petal2 {
     left: 0;
     z-index: 2;
-  
     width: 200px;
     height: 40px;
-    border-radius: 50%;
-  
     background: radial-gradient(circle, #ff5e00, #fbd702);
-  
-    filter: drop-shadow(0 0 5px #e05200);
-  }
-  
-  .Petal2.p1 {
-  }
-  
-  .Petal2.p2 {
-    transform: rotate(90deg);
-  }
-  .Petal2.p3 {
-    transform: rotate(45deg);
-  }
-  
-  .Petal2.p4 {
-    transform: rotate(135deg);
-  }
-  
-  .Petal3 {
-    position: absolute;
+}
+
+.Petal2.p1 { }
+.Petal2.p2 { transform: rotate(90deg); }
+.Petal2.p3 { transform: rotate(45deg); }
+.Petal2.p4 { transform: rotate(135deg); }
+
+.Petal3 {
     left: 0px;
     z-index: 1;
-  
     width: 200px;
     height: 40px;
-    border-radius: 50%;
-  
     background: radial-gradient(circle, #ff5e00, #fbd702);
-  
     filter: drop-shadow(0 0 2px #fbd702);
-  }
-  .Petal3.p1 {
-    transform: rotate(22.5deg);
-  }
-  .Petal3.p2 {
-    transform: rotate(67.5deg);
-  }
-  .Petal3.p3 {
-    transform: rotate(110.5deg);
-  }
-  .Petal3.p4 {
-    transform: rotate(157.5deg);
-  }
+}
+
+.Petal3.p1 { transform: rotate(22.5deg); }
+.Petal3.p2 { transform: rotate(67.5deg); }
+.Petal3.p3 { transform: rotate(110.5deg); }
+.Petal3.p4 { transform: rotate(157.5deg); }
+
+/* Animación de pulsación */
+@keyframes pulsate {
+    0% { transform: scale(1.5); }
+    50% { transform: scale(1.6); }
+    100% { transform: scale(1.5); }
+}
